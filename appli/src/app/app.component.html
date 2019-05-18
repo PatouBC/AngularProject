@@ -1,0 +1,30 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+    <mat-toolbar color="primary" role="heading">
+      <span>Menu</span>
+      <span class="remaining-space"></span>
+      <button mat-button (click)="sidenav.close()">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </mat-toolbar>
+    <nav>
+      <mat-nav-list>
+        <a routerLink="/task" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
+          <mat-icon matListIcon>view_list</mat-icon>
+          <span>Task list</span>
+        </a>
+        <a routerLink="/category" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
+          <mat-icon matListIcon>view_list</mat-icon>
+          <span>Category list</span>
+        </a>
+      </mat-nav-list>
+    </nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <div class="container-fluid test">
+    
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
