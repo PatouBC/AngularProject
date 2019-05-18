@@ -1,6 +1,6 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav mode="over" [(opened)]="opened">
-    <mat-toolbar color="primary" role="heading">
+    <mat-toolbar  role="heading">
       <span>Menu</span>
       <span class="remaining-space"></span>
       <button mat-button (click)="sidenav.close()">
@@ -9,21 +9,65 @@
     </mat-toolbar>
     <nav>
       <mat-nav-list>
-        <a routerLink="/task" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
-          <mat-icon matListIcon>view_list</mat-icon>
-          <span>Task list</span>
+        <a routerLink="/home" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
+          <mat-icon matListIcon>local_florist</mat-icon>
+          <span>Accueil</span>
         </a>
-        <a routerLink="/category" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
-          <mat-icon matListIcon>view_list</mat-icon>
-          <span>Category list</span>
+        <a routerLink="/product" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
+          <mat-icon matListIcon>local_florist</mat-icon>
+          <span>Fleurs et Elixirs</span>
         </a>
       </mat-nav-list>
     </nav>
   </mat-sidenav>
   <mat-sidenav-content>
-
+    <mat-toolbar  role="heading">
+      <span>
+        <button mat-button (click)="sidenav.toggle()">
+          <mat-icon>view_headline</mat-icon>
+        </button>
+      </span>
+      <span class="remaining-space"></span>
+      <span *ngIf="!isConnected()">        
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon class="material-icons-outlined">account_box</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/login" routerLinkActive="active">
+            <span>Se Connecter</span>
+          </button>
+        </mat-menu>
+        <span>Non connecté</span>
+      </span>
+      <span *ngIf="isConnected()">
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon class="material-icons">account_box</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon class="material-icons">account_box</mat-icon>
+            <span>Mon Profile</span>
+          </button>
+          <button mat-menu-item (click)="logout()">
+            <mat-icon class="material-icons">close</mat-icon>
+            <span>Se Déconnecter</span>
+          </button>
+        </mat-menu>
+        <span>{{ user?.username }} </span>
+      </span>
+    </mat-toolbar>
     <div class="container-fluid test">
-    
+      <div class="row entete no-gutters">
+        <div class="col-3 m-0">
+          <img class="img-fluid logo" src="../assets/images/logo-re-naissance-claire-body.png" >
+        </div>
+        <div class="col t-0" >
+            <img class="img-fluid logo" src="../assets/images/page1.jpg" >
+        </div>  
+      </div>
+
+
+      <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
 

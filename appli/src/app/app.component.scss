@@ -1,5 +1,30 @@
-.example-fill-remaining-space {
-    /* This fills the remaining space, by using flexbox. 
-       Every toolbar row uses a flexbox row layout. */
-    flex: 1 1 auto;
-  }
+.remaining-space{
+   flex: 1 1 auto;
+}
+mat-sidenav{
+   min-width: 300px;
+   color: #707070;
+   background-color: white;
+}
+.example-container {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+ }
+.test{
+   background-color: aquamarine;
+   width: 100vw;
+   height: 100vh;
+   margin: 0%;
+   padding: 0%;
+}
+mat-toolbar{
+   background-color: white;
+   color: #929292;
+}
+.entete{
+   height: 300px;
+}
+
