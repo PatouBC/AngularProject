@@ -23,8 +23,19 @@ mat-sidenav{
 mat-toolbar{
    background-color: white;
    color: #929292;
+   border-bottom-style: solid;
+   border-color: #f3f3f3;
+}
+.logo{
+	background-image: url("../assets/images/logo300-re-naissance-claire-body.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 25vw;
 }
 .entete{
-   height: 300px;
+	background-image: url("../assets/images/accueil400.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100vw;
 }
 
