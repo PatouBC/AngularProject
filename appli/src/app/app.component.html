@@ -1,7 +1,7 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav mode="over" [(opened)]="opened">
     <mat-toolbar  role="heading">
-      <span>Menu</span>
+      <span><img src="../assets/images/fleur70.png" width="50px"></span>
       <span class="remaining-space"></span>
       <button mat-button (click)="sidenav.close()">
         <mat-icon>clear</mat-icon>
@@ -13,10 +13,23 @@
           <mat-icon matListIcon>local_florist</mat-icon>
           <span>Accueil</span>
         </a>
-        <a routerLink="/product" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
+        <a mat-list-item [matMenuTriggerFor]="products">
           <mat-icon matListIcon>local_florist</mat-icon>
           <span>Fleurs et Elixirs</span>
+          <mat-icon>expand_more</mat-icon>
         </a>
+          <mat-menu #products="matMenu">
+            <button mat-menu-item routerLink="/product" routerLinkActive="active" (click)="sidenav.close()">
+              <span>Fleurs de Bach</span>
+            </button>
+            <button mat-menu-item routerLink="/product" routerLinkActive="active" (click)="sidenav.close()">
+              <span>Fleurs du Bush</span>
+            </button>
+            <button mat-menu-item routerLink="/product" routerLinkActive="active" (click)="sidenav.close()">
+              <span>Elixir de cristaux</span>
+            </button>
+          </mat-menu>
+
       </mat-nav-list>
     </nav>
   </mat-sidenav>
