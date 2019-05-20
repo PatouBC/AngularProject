@@ -13,24 +13,24 @@
           <mat-icon matListIcon>local_florist</mat-icon>
           <span>Accueil</span>
         </a>
-        <a mat-list-item [matMenuTriggerFor]="products">
+        <a mat-list-item (click)="toggleMenu()">
           <mat-icon matListIcon>local_florist</mat-icon>
           <span>Fleurs et Elixirs</span>
-          <mat-icon>expand_more</mat-icon>
+          <mat-icon *ngIf="!showMenu">chevron_right</mat-icon>
+          <mat-icon *ngIf="showMenu">expand_more</mat-icon>
         </a>
-          <mat-menu #products="matMenu">
-            <button mat-menu-item routerLink="/product" routerLinkActive="active" (click)="sidenav.close()">
+          <mat-nav-list class="sidenav-submenu" *ngIf="showMenu">
+            <a class="subCat" mat-list-item routerLink="/product" routerLinkActive="active" (click)="sidenav.close()">
               <span>Fleurs de Bach</span>
-            </button>
-            <button mat-menu-item routerLink="/product" routerLinkActive="active" (click)="sidenav.close()">
-              <span>Fleurs du Bush</span>
-            </button>
-            <button mat-menu-item routerLink="/product" routerLinkActive="active" (click)="sidenav.close()">
+            </a>
+            <a class="subCat" mat-list-item routerLink="/product" routerLinkActive="active" (click)="sidenav.close()">
+              <span>Fleurs du Bush Australien</span>
+            </a>
+            <a class="subCat" mat-list-item routerLink="/product" routerLinkActive="active" (click)="sidenav.close()">
               <span>Elixir de cristaux</span>
-            </button>
-          </mat-menu>
-
-      </mat-nav-list>
+            </a>
+          </mat-nav-list>
+       </mat-nav-list>
     </nav>
   </mat-sidenav>
   <mat-sidenav-content>

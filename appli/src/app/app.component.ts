@@ -11,8 +11,16 @@ import { User } from './class/user';
 export class AppComponent implements OnInit {
   opened: boolean;
   user: User|null;
-  shouldRun = true;
+  
+  showMenu = false;
+
+
   constructor(private titleService: TitleService, private auth: AuthService) {}
+
+  toggleMenu(){
+    this.showMenu = !this.showMenu;
+  }
+  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 
   ngOnInit(): void {
     this.titleService.init();
