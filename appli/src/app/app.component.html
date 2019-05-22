@@ -19,17 +19,30 @@
           <mat-icon *ngIf="!showMenu">chevron_right</mat-icon>
           <mat-icon *ngIf="showMenu">expand_more</mat-icon>
         </a>
-          <mat-nav-list class="sidenav-submenu" *ngIf="showMenu">
-            <a class="subCat" mat-list-item routerLink="/product" routerLinkActive="active" (click)="sidenav.close()">
-              <span>Fleurs de Bach</span>
-            </a>
-            <a class="subCat" mat-list-item routerLink="/product" routerLinkActive="active" (click)="sidenav.close()">
-              <span>Fleurs du Bush Australien</span>
-            </a>
-            <a class="subCat" mat-list-item routerLink="/product" routerLinkActive="active" (click)="sidenav.close()">
-              <span>Elixir de cristaux</span>
-            </a>
-          </mat-nav-list>
+        <mat-nav-list class="sidenav-submenu" *ngIf="showMenu" >
+          <a class="subCat" mat-list-item
+             routerLink="/category"
+             routerLinkActive="active"
+             *ngFor="let category of categories"
+             (click)="sidenav.close()">
+            <span>{{ category?.title}}</span>
+          </a>
+
+        </mat-nav-list>
+        <a routerLink="/soins" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
+          <mat-icon matListIcon>local_florist</mat-icon>
+          <span>Soins énergétiques</span>
+        </a>
+        <a routerLink="/ateliers" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
+          <mat-icon matListIcon>local_florist</mat-icon>
+          <span>Ateliers</span>
+        </a>
+        <a routerLink="/consultations" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
+          <mat-icon matListIcon>local_florist</mat-icon>
+          <span>Consultations</span>
+        </a>
+
+
        </mat-nav-list>
     </nav>
   </mat-sidenav>

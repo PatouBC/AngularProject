@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TitleService } from './service/title.service';
 import { AuthService } from './service/auth.service';
 import { User } from './class/user';
+import {Category} from './class/category';
+import {CategoryService} from './service/category.service';
 
 @Component({
   selector: 'app-root',
@@ -11,19 +13,27 @@ import { User } from './class/user';
 export class AppComponent implements OnInit {
   opened: boolean;
   user: User|null;
-  
+  categories: Category[];
+
   showMenu = false;
 
 
-  constructor(private titleService: TitleService, private auth: AuthService) {}
+  constructor(private titleService: TitleService, private auth: AuthService, private catServ: CategoryService) {}
 
   toggleMenu(){
     this.showMenu = !this.showMenu;
   }
-  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 
   ngOnInit(): void {
     this.titleService.init();
+    this.getCategories();
+  }
+
+  getCategories() {
+    this.catServ.getCategories()
+        .subscribe((data: Category[]) => {
+          this.categories = data;
+        });
   }
 
   isConnected(): boolean {

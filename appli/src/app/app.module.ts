@@ -6,8 +6,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule, MatToolbarModule, MatSidenavModule, MatCheckboxModule, 
-         MatButtonModule, MatExpansionModule, MatListModule, MatMenuModule, 
+import { MatIconModule, MatToolbarModule, MatSidenavModule, MatCheckboxModule,
+         MatButtonModule, MatExpansionModule, MatListModule, MatMenuModule,
          MatCardModule, MatFormFieldModule, MatInputModule, MatGridListModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -17,11 +17,21 @@ import { JwtInterceptor } from './class/jwt-interceptor';
 import { ErrorInterceptor } from './class/error-interceptor';
 import { HomeComponent } from './page/home/home.component';
 import { ProductComponent } from './page/product/product.component';
+import { SoinsComponent } from './page/soins/soins.component';
+import { AteliersComponent } from './page/ateliers/ateliers.component';
+import { ConsultationsComponent } from './page/consultations/consultations.component';
+import { CategoryComponent } from './page/category/category.component';
+import { IndicationComponent } from './page/indication/indication.component';
+import { ImagepathPipe } from './pipe/imagepath.pipe';
 
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent, data : { title: 'Accueil' } },
   { path: 'product', component: ProductComponent, data : { title: 'Fleurs et Elixirs' } },
+  { path: 'category', component: CategoryComponent, data : { title: 'Catégories' } },
+  { path: 'soins', component: SoinsComponent, data : { title: 'Soins énergétiques' } },
+  { path: 'ateliers', component: AteliersComponent, data : { title: 'Ateliers' } },
+  { path: 'consultations', component: ConsultationsComponent, data : { title: 'Consultations' } },
   { path: 'login', component: LoginComponent, data : { title: 'Connexion' } },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: AppComponent }
@@ -34,7 +44,13 @@ const appRoutes: Routes = [
     ProductComponent,
     LoginComponent,
     HomeComponent,
-    ProductComponent
+    ProductComponent,
+    SoinsComponent,
+    AteliersComponent,
+    ConsultationsComponent,
+    CategoryComponent,
+    IndicationComponent,
+    ImagepathPipe
   ],
   imports: [
     BrowserModule,

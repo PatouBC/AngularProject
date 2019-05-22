@@ -38,7 +38,7 @@ export class AuthService {
         return data;
       }));
   }
-  public get tokenData(){
+  public get tokenData() {
     return JSON.parse(localStorage.getItem(Globals.APP_USER_TOKEN));
   }
 
