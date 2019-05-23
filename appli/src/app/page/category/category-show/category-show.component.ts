@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {CategoryService} from '../../../service/category.service';
 import {Category} from '../../../class/category';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProductService} from '../../../service/product.service';
 import {Product} from '../../../class/product';
+import {IndicationService} from '../../../service/indication.service';
+import {Indication} from '../../../class/indication';
 
 @Component({
     selector: 'app-category-show',
@@ -12,21 +13,20 @@ import {Product} from '../../../class/product';
     styleUrls: ['./category-show.component.scss']
 })
 export class CategoryShowComponent implements OnInit {
-    catForm: FormGroup;
+
     category: Category;
     products: Product[];
+    indications: Indication[];
 
     constructor(private router: Router,
                 private catServ: CategoryService,
                 private activatedRoute: ActivatedRoute,
                 private prodServ: ProductService,
-                private fb: FormBuilder) {
+                private indServ: IndicationService) {
     }
 
     ngOnInit() {
-        this.catForm = this.fb.group({
-            description: ['', Validators.required]
-        });
+
         this.activatedRoute.params
             .subscribe((params) => {
                 this.catServ.getCategory(params.id)
@@ -35,6 +35,7 @@ export class CategoryShowComponent implements OnInit {
                     });
             });
         this.getProducts();
+        this.getIndications();
     }
 
     getProducts() {
@@ -43,5 +44,12 @@ export class CategoryShowComponent implements OnInit {
                 this.products = data;
             });
 
+    }
+
+    getIndications() {
+        this.indServ.getIndications()
+            .subscribe((data: Indication[]) => {
+                this.indications = data;
+            });
     }
 }

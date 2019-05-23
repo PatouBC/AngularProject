@@ -4,5 +4,6 @@ export class Product {
     state: string;
     effect: string;
     category: number;
+    indication: string;
     image: string;
 }

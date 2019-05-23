@@ -14,3 +14,9 @@
         <img src="{{ product.image.imgpath | imagepath }}" width="150px">
     </div>
 </div>
+<div>
+    <label> Tri par émotion </label>
+    <select >
+        <option *ngFor="let indication of indications">{{ indication.description}}</option>
+    </select>
+</div>
