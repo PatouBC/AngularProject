@@ -4,6 +4,7 @@ import { AuthService } from './service/auth.service';
 import { User } from './class/user';
 import {Category} from './class/category';
 import {CategoryService} from './service/category.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,10 @@ export class AppComponent implements OnInit {
   showMenu = false;
 
 
-  constructor(private titleService: TitleService, private auth: AuthService, private catServ: CategoryService) {}
+  constructor(private titleService: TitleService,
+              private auth: AuthService,
+              private catServ: CategoryService,
+              private router: Router) {}
 
   toggleMenu(){
     this.showMenu = !this.showMenu;
@@ -34,6 +38,9 @@ export class AppComponent implements OnInit {
         .subscribe((data: Category[]) => {
           this.categories = data;
         });
+  }
+  menuNav() {
+    this.router.navigate(['/category']);
   }
 
   isConnected(): boolean {
