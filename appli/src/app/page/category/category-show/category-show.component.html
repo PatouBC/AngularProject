@@ -1,6 +1,16 @@
+<div>
+    <div>{{ category.title }}</div>
+    <div>{{ category.description}}</div>
+    <img src="{{ category.image.imgpath | imagepath }}" width="150px">
+</div>
 
-<div >
-  <div>{{ category.title }}</div>
-  <div>{{ category.description}}</div>
-  <img src="{{ category.image.imgpath | imagepath }}" width="150px">
+
+<h6>{{ category.title }}</h6>
+<div *ngFor="let product of products">
+    <div *ngIf="category.id === product.category.id">
+        <div>{{ product.name}}</div>
+        <div>{{ product.state}}</div>
+        <div>{{ product.effect}}</div>
+        <img src="{{ product.image.imgpath | imagepath }}" width="150px">
+    </div>
 </div>

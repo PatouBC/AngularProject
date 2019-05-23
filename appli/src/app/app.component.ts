@@ -39,9 +39,6 @@ export class AppComponent implements OnInit {
           this.categories = data;
         });
   }
-  menuNav() {
-    this.router.navigate(['/category']);
-  }
 
   isConnected(): boolean {
     this.user = this.auth.currentUser;
