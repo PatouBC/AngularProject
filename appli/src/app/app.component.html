@@ -21,7 +21,7 @@
         </a>
         <mat-nav-list class="sidenav-submenu" *ngIf="showMenu" >
           <a class="subCat" mat-list-item
-             routerLink="/category/show/{{ category.id }} "
+             routerLink="/product/show/{{ category.id }} "
              routerLinkActive="active"
              *ngFor="let category of categories"
              (click)="sidenav.close()">

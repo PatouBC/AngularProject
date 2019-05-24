@@ -1,0 +1,19 @@
+<div >
+  <h6>{{ category?.title }}</h6>
+  <div>{{ category?.description}}</div>
+  <img src="{{ category?.image?.imgpath | imagepath }}" width="150px">
+</div>
+<div *ngFor="let product of products">
+
+  <div>{{ product.name}}</div>
+  <div>{{ product.state}}</div>
+  <div>{{ product.effect}}</div>
+  <img src="{{ product.image.imgpath | imagepath }}" width="150px">
+
+</div>
+<div *ngIf="indications?.length > 1">
+  <label> Tri par émotion </label>
+  <select >
+    <option *ngFor="let indication of indications">{{ indication.description}}</option>
+  </select>
+</div>

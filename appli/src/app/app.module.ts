@@ -17,15 +17,15 @@ import { LoginComponent } from './page/login/login.component';
 import { JwtInterceptor } from './class/jwt-interceptor';
 import { ErrorInterceptor } from './class/error-interceptor';
 import { HomeComponent } from './page/home/home.component';
-import { ProductComponent } from './page/product/product.component';
+
 import { SoinsComponent } from './page/soins/soins.component';
 import { AteliersComponent } from './page/ateliers/ateliers.component';
 import { ConsultationsComponent } from './page/consultations/consultations.component';
-
-import { CategoryComponent } from './page/category/category.component';
-import { CategoryShowComponent} from './page/category/category-show/category-show.component';
-
 import { IndicationComponent } from './page/indication/indication.component';
+import { CategoryComponent } from './page/category/category.component';
+
+import { ProductComponent } from './page/product/product.component';
+import { ProductShowComponent } from './page/product/product-show/product-show.component';
 
 
 
@@ -36,12 +36,12 @@ const appRoutes: Routes = [
   { path: 'product',
     component: ProductComponent,
     data : { title: 'Fleurs et Elixirs' } },
+  { path: 'product/show/:id',
+    component: ProductShowComponent,
+    data : { title: 'Produits' } },
   { path: 'category',
     component: CategoryComponent,
     data : { title: 'Catégories' } },
-  { path: 'category/show/:id',
-    component: CategoryShowComponent,
-    data : { title: 'Catégorie' } },
   { path: 'soins',
     component: SoinsComponent,
     data : { title: 'Soins énergétiques' } },
@@ -73,9 +73,9 @@ const appRoutes: Routes = [
     AteliersComponent,
     ConsultationsComponent,
     CategoryComponent,
-    CategoryShowComponent,
     IndicationComponent,
-    ImagepathPipe
+    ImagepathPipe,
+    ProductShowComponent
   ],
   imports: [
     BrowserModule,
