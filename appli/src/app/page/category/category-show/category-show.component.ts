@@ -16,6 +16,7 @@ export class CategoryShowComponent implements OnInit {
 
     category: Category;
     products: Product[];
+    product: Product;
     indications: Indication[];
 
     constructor(private router: Router,
@@ -29,27 +30,32 @@ export class CategoryShowComponent implements OnInit {
 
         this.activatedRoute.params
             .subscribe((params) => {
-                this.catServ.getCategory(params.id)
-                    .subscribe((category: Category) => {
-                        this.category = category;
+                this.prodServ.getProductsByCategory(params.id)
+                    .subscribe((products: Product[]) => {
+                        this.products = products;
+                        this.getIndications();
                     });
             });
-        this.getProducts();
-        this.getIndications();
     }
 
     getProducts() {
         this.prodServ.getProducts()
-            .subscribe((data: Product[]) => {
-                this.products = data;
+            .subscribe((products: Product[]) => {
+                this.products = products;
             });
-
     }
 
     getIndications() {
-        this.indServ.getIndications()
-            .subscribe((data: Indication[]) => {
-                this.indications = data;
+        const indicationControl = {};
+        this.indications = [];
+        this.products.map((product) => {
+            const indics = product.indications;
+            indics.map((indication) => {
+                if (! indicationControl[indication.id]) {
+                    indicationControl[indication.id] = indication;
+                    this.indications.push(indication);
+                }
             });
+        });
     }
 }

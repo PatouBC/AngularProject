@@ -13,4 +13,8 @@ export class ProductService {
   getProducts() {
     return this.http.get( Globals.APP_API + 'product');
   }
+
+  getProductsByCategory(categoryId: number) {
+    return this.http.get( Globals.APP_API + 'product?category=' + categoryId);
+  }
 }

@@ -16,4 +16,5 @@ export class CategoryService {
   getCategory(id: number) {
     return this.http.get(Globals.APP_API + 'category' + '/' + id);
   }
+
 }
