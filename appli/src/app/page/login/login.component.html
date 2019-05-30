@@ -5,11 +5,15 @@
       <ngb-alert type="danger" *ngIf="connexionFailed" (close)="connexionFailed=false">
         Le couple identifiant/mot de passe n'est pas valide
       </ngb-alert>
+      <mat-spinner *ngIf="loading" [diameter]="20"></mat-spinner>
       <mat-card-title class="text-center">Se connecter</mat-card-title>
       <mat-card-content>
         <form class="form-content" [formGroup]="loginForm">
           <mat-form-field>
-            <input matInput placeholder="identifiant" formControlName="username" autocomplete="off" required/>
+            <input matInput
+                   placeholder="identifiant"
+                   formControlName="username"
+                   autocomplete="off" required/>
           </mat-form-field>
           <mat-form-field>
               <input matInput 
@@ -19,9 +23,17 @@
               autocomplete="off" required/>
             </mat-form-field>
             <button class="mt-3" mat-flat-button
-            (click)="login()"
-            color="primary">Se Connecter</button>
+                  [disabled]="loading || loginForm.invalid"
+                  (click)="login()"
+                  color="primary">
+              <span>Se Connecter</span>
+            </button>
         </form>
+        <div class="mt-3 text-center">
+          <div class="row justify-content-center">
+            <a href="http://admin.renaissance-terrehappy.fr/resetting/request">Mot de passe oublié ?</a>
+          </div>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
