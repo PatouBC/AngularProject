@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public connexionFailed: boolean;
   constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
-      if(this.auth.isConnected()) {
+      if (this.auth.isConnected()) {
         this.router.navigate(['/home']);
       }
    }
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     });
   }
   login() {
-    this.connexionFailed = false
+    this.connexionFailed = false;
     const val = this.loginForm.value;
     if (val.username && val.password) {
       this.auth.login(val.username, val.password)

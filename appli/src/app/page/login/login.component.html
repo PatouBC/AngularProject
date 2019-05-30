@@ -2,6 +2,9 @@
 <div class="container-fluid">
   <div fxLayout="row" fxLayoutAlign="center center" style="height: calc(100vh - 64px);">
     <mat-card class="col-12 col-sm-8 col-md-6 col-lg-4">
+      <ngb-alert type="danger" *ngIf="connexionFailed" (close)="connexionFailed=false">
+        Le couple identifiant/mot de passe n'est pas valide
+      </ngb-alert>
       <mat-card-title class="text-center">Se connecter</mat-card-title>
       <mat-card-content>
         <form class="form-content" [formGroup]="loginForm">

@@ -1,15 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatIconModule, MatToolbarModule, MatSidenavModule, MatCheckboxModule,
          MatButtonModule, MatExpansionModule, MatListModule, MatMenuModule,
-         MatCardModule, MatFormFieldModule, MatInputModule, MatGridListModule } from '@angular/material';
+         MatCardModule, MatFormFieldModule, MatInputModule, MatGridListModule,
+         MatProgressSpinnerModule, MatTableModule, MatSelectModule,
+         MatAutocompleteModule} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ImagepathPipe } from './pipe/imagepath.pipe';
 
 import { AppComponent } from './app.component';
@@ -23,9 +25,12 @@ import { AteliersComponent } from './page/ateliers/ateliers.component';
 import { ConsultationsComponent } from './page/consultations/consultations.component';
 import { IndicationComponent } from './page/indication/indication.component';
 import { CategoryComponent } from './page/category/category.component';
+import { RegistrationComponent } from './page/registration/registration.component';
 
 import { ProductComponent } from './page/product/product.component';
 import { ProductShowComponent } from './page/product/product-show/product-show.component';
+import { ProfilePageComponent } from './page/profile-page/profile-page.component';
+
 
 
 
@@ -54,6 +59,9 @@ const appRoutes: Routes = [
   { path: 'login',
     component: LoginComponent,
     data : { title: 'Connexion' } },
+  { path: 'registration',
+    component: RegistrationComponent,
+    data : { title: 'Enregistrement' } },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full' },
@@ -75,7 +83,9 @@ const appRoutes: Routes = [
     CategoryComponent,
     IndicationComponent,
     ImagepathPipe,
-    ProductShowComponent
+    ProductShowComponent,
+    RegistrationComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
@@ -95,6 +105,11 @@ const appRoutes: Routes = [
     MatMenuModule,
     MatCardModule,
     MatGridListModule,
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatSelectModule,
+    MatAutocompleteModule,
+    NgbModule,
     FlexLayoutModule,
     RouterModule.forRoot(appRoutes)
   ],
