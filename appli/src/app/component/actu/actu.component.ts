@@ -1,0 +1,23 @@
+import { Component, OnInit } from '@angular/core';
+import { Actu } from '../../class/actu';
+import { ActuService } from '../../service/actu.service';
+
+@Component({
+  selector: 'app-actu',
+  templateUrl: './actu.component.html',
+  styleUrls: ['./actu.component.scss']
+})
+export class ActuComponent implements OnInit {
+
+  actus: Actu[];
+
+  constructor(private actuServ: ActuService) { }
+
+  ngOnInit() {
+    this.actuServ.getActus()
+        .subscribe((data: Actu[]) => {
+          this.actus = data;
+        });
+  }
+
+}

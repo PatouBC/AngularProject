@@ -23,13 +23,15 @@ import { HomeComponent } from './page/home/home.component';
 import { SoinsComponent } from './page/soins/soins.component';
 import { AteliersComponent } from './page/ateliers/ateliers.component';
 import { ConsultationsComponent } from './page/consultations/consultations.component';
-import { IndicationComponent } from './page/indication/indication.component';
+import { IndicationComponent } from './component/indication/indication.component';
 import { CategoryComponent } from './component/category/category.component';
 import { RegistrationComponent } from './page/registration/registration.component';
 
 import { ProductComponent } from './page/product/product.component';
 
 import { ProfilePageComponent } from './page/profile-page/profile-page.component';
+import { ActuComponent } from './component/actu/actu.component';
+import { HtmlPipe } from './pipe/html.pipe';
 
 
 
@@ -80,7 +82,9 @@ const appRoutes: Routes = [
     IndicationComponent,
     ImagepathPipe,
     RegistrationComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    ActuComponent,
+    HtmlPipe
   ],
   imports: [
     BrowserModule,

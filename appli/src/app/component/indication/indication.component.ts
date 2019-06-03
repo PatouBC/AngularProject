@@ -12,20 +12,14 @@ export class IndicationComponent implements OnInit {
 
   indications: Indication[];
 
-
   constructor(private indServ: IndicationService,
-              private router: Router) {
-  }
+              private router: Router) { }
 
   ngOnInit() {
-    this.getIndications();
-  }
-
-  getIndications() {
     this.indServ.getIndications()
         .subscribe((data: Indication[]) => {
           this.indications = data;
         });
   }
-}
 
+}
