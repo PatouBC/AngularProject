@@ -24,11 +24,11 @@ import { SoinsComponent } from './page/soins/soins.component';
 import { AteliersComponent } from './page/ateliers/ateliers.component';
 import { ConsultationsComponent } from './page/consultations/consultations.component';
 import { IndicationComponent } from './page/indication/indication.component';
-import { CategoryComponent } from './page/category/category.component';
+import { CategoryComponent } from './component/category/category.component';
 import { RegistrationComponent } from './page/registration/registration.component';
 
 import { ProductComponent } from './page/product/product.component';
-import { ProductShowComponent } from './page/product/product-show/product-show.component';
+
 import { ProfilePageComponent } from './page/profile-page/profile-page.component';
 
 
@@ -38,12 +38,9 @@ const appRoutes: Routes = [
   { path: 'home',
     component: HomeComponent,
     data : { title: 'Accueil' } },
-  { path: 'product',
+  { path: 'product/:id',
     component: ProductComponent,
     data : { title: 'Fleurs et Elixirs' } },
-  { path: 'product/show/:id',
-    component: ProductShowComponent,
-    data : { title: 'Produits' } },
   { path: 'category',
     component: CategoryComponent,
     data : { title: 'Catégories' } },
@@ -76,14 +73,12 @@ const appRoutes: Routes = [
     ProductComponent,
     LoginComponent,
     HomeComponent,
-    ProductComponent,
     SoinsComponent,
     AteliersComponent,
     ConsultationsComponent,
     CategoryComponent,
     IndicationComponent,
     ImagepathPipe,
-    ProductShowComponent,
     RegistrationComponent,
     ProfilePageComponent
   ],
