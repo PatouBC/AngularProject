@@ -20,12 +20,12 @@
           <mat-icon *ngIf="showMenu">expand_more</mat-icon>
         </a>
         <mat-nav-list class="sidenav-submenu" *ngIf="showMenu" >
-          <a class="subCat" mat-list-item
-             routerLink="/product/{{ category?.id }} "
+          <a *ngFor="let category of categories"
+             class="subCat" mat-list-item
+             routerLink="/product/{{ category.id }}"
              routerLinkActive="active"
-             *ngFor="let category of categories"
              (click)="sidenav.close()">
-            <span>{{ category?.title}}</span>
+            <span>{{ category.title}}</span>
           </a>
 
         </mat-nav-list>
@@ -41,7 +41,6 @@
           <mat-icon matListIcon>local_florist</mat-icon>
           <span>Consultations</span>
         </a>
-
 
        </mat-nav-list>
     </nav>
@@ -75,7 +74,7 @@
           <mat-icon class="material-icons">account_box</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>
+          <button routerLink="/profile" routerLinkActive="active" mat-menu-item (click)="sidenav.close()">
             <mat-icon class="material-icons">account_box</mat-icon>
             <span>Mon Profile</span>
           </button>

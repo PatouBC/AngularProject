@@ -1,6 +1,16 @@
-<div>
-  <div>{{ category?.title}}</div>
-  <div>{{ category?.description}}</div>
-  <img src="{{ category?.image?.imgpath | imagepath }}" width="150px">
+<div >
+  <div fxLayoutAlign="center center ">
+    <div class="pageTitle">{{ category?.title}}</div>
+  </div>
+  <div fxLayout="row">
+    <div>{{ category?.description}}</div>
+    <mat-spinner *ngIf="loading" [diameter]="20"></mat-spinner>
+    <div *ngIf="category">
+      <app-image
+              [imgPath]="category?.image?.imgpath">
+      </app-image>
+    </div>
 
+  </div>
 </div>
+

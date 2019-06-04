@@ -1,5 +1,9 @@
 <div *ngFor="let actu of actus" >
-  <div>{{ actu?.title}}</div>
-  <div [innerHTML]="actu?.description | html" ></div>
-  <img src="{{ actu?.image?.imgpath | imagepath }}" width="150px">
+  <div>{{ actu.title}}</div>
+  <div [innerHTML]="actu.description | html" ></div>
+  <mat-spinner *ngIf="loading" [diameter]="20"></mat-spinner>
+  <app-image
+              [imgPath]="actu.image.imgpath">
+
+  </app-image>
 </div>

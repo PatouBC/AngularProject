@@ -4,7 +4,10 @@
 <div *ngFor="let product of products">
 
   <div>
-    <img src="{{ product.image.imgpath | imagepath }}" width="150px">
+    <mat-spinner *ngIf="loading" [diameter]="20"></mat-spinner>
+    <app-image
+            [imgPath]="product.image.imgpath">
+    </app-image>
     <div>{{ product.name}}</div>
   </div>
 

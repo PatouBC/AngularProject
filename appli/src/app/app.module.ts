@@ -18,8 +18,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './page/login/login.component';
 import { JwtInterceptor } from './class/jwt-interceptor';
 import { ErrorInterceptor } from './class/error-interceptor';
-import { HomeComponent } from './page/home/home.component';
+import {IsSignedInGuard} from './guard/is-signed-in.guard';
 
+import { HomeComponent } from './page/home/home.component';
 import { SoinsComponent } from './page/soins/soins.component';
 import { AteliersComponent } from './page/ateliers/ateliers.component';
 import { ConsultationsComponent } from './page/consultations/consultations.component';
@@ -32,6 +33,8 @@ import { ProductComponent } from './page/product/product.component';
 import { ProfilePageComponent } from './page/profile-page/profile-page.component';
 import { ActuComponent } from './component/actu/actu.component';
 import { HtmlPipe } from './pipe/html.pipe';
+import { ImageComponent } from './component/image/image.component';
+
 
 
 
@@ -61,6 +64,10 @@ const appRoutes: Routes = [
   { path: 'registration',
     component: RegistrationComponent,
     data : { title: 'Enregistrement' } },
+  { path: 'profile',
+    component: ProfilePageComponent,
+    canActivate : [IsSignedInGuard],
+    data : { title: 'Profile' } },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full' },
@@ -84,7 +91,8 @@ const appRoutes: Routes = [
     RegistrationComponent,
     ProfilePageComponent,
     ActuComponent,
-    HtmlPipe
+    HtmlPipe,
+    ImageComponent
   ],
   imports: [
     BrowserModule,
