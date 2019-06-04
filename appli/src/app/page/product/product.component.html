@@ -3,10 +3,13 @@
 </div>
 <div *ngFor="let product of products">
 
-  <div>{{ product.name}}</div>
+  <div>
+    <img src="{{ product.image.imgpath | imagepath }}" width="150px">
+    <div>{{ product.name}}</div>
+  </div>
+
   <div [innerHTML]="product?.state | html"></div>
   <div [innerHTML]="product?.effect | html"></div>
-  <img src="{{ product.image.imgpath | imagepath }}" width="150px">
 
 </div>
 <div *ngIf="indications?.length > 1">
