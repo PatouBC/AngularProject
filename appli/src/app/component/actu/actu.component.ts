@@ -15,12 +15,18 @@ export class ActuComponent implements OnInit {
   constructor(private actuServ: ActuService) { }
 
   ngOnInit() {
+      this.loading = true;
+      setTimeout(() => {
+          this.getActus();
+      }, 2000);
 
-      this.actuServ.getActus()
-        .subscribe((data: Actu[]) => {
-            this.loading = false;
-            this.actus = data;
-        });
   }
 
+  getActus() {
+      this.actuServ.getActus()
+          .subscribe((data: Actu[]) => {
+              this.loading = false;
+              this.actus = data;
+          });
+  }
 }

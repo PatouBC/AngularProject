@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
               private catServ: CategoryService,
               private router: Router) {}
 
-  toggleMenu(){
+  toggleMenu() {
     this.showMenu = !this.showMenu;
   }
 
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
   getCategories() {
     this.catServ.getCategories()
         .subscribe((data: Category[]) => {
-          this.categories = data;
+            this.categories = data;
         });
   }
 

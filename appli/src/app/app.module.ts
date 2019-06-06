@@ -34,6 +34,8 @@ import { ProfilePageComponent } from './page/profile-page/profile-page.component
 import { ActuComponent } from './component/actu/actu.component';
 import { HtmlPipe } from './pipe/html.pipe';
 import { ImageComponent } from './component/image/image.component';
+import { ProductDetailComponent } from './page/product/product-detail/product-detail.component';
+import { CalendarComponent } from './component/calendar/calendar.component';
 
 
 
@@ -43,12 +45,15 @@ const appRoutes: Routes = [
   { path: 'home',
     component: HomeComponent,
     data : { title: 'Accueil' } },
-  { path: 'product/:id',
-    component: ProductComponent,
-    data : { title: 'Fleurs et Elixirs' } },
   { path: 'category',
     component: CategoryComponent,
     data : { title: 'Catégories' } },
+  { path: 'product/:id',
+    component: ProductComponent,
+    data : { title: 'Fleurs et Elixirs' } },
+  { path: 'product/detail/:id',
+    component: ProductDetailComponent,
+    data : { title: 'Fleurs et Elixirs' } },
   { path: 'soins',
     component: SoinsComponent,
     data : { title: 'Soins énergétiques' } },
@@ -92,7 +97,9 @@ const appRoutes: Routes = [
     ProfilePageComponent,
     ActuComponent,
     HtmlPipe,
-    ImageComponent
+    ImageComponent,
+    ProductDetailComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

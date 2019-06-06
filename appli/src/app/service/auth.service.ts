@@ -3,10 +3,10 @@ import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
-import {Login} from '../class/login';
-import {User} from '../class/user';
+import { Login } from '../class/login';
+import { User } from '../class/user';
 import {Globals} from '../globals';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +19,7 @@ export class AuthService {
     private userSubject: BehaviorSubject<User>;
     private userObs: Observable<User>;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private router: Router) {
         const token = JSON.parse(localStorage.getItem(Globals.APP_USER_TOKEN));
         this.loginSubject = new BehaviorSubject<Login>(token);
         this.loginObs = this.loginSubject.asObservable();
@@ -54,6 +54,7 @@ export class AuthService {
         localStorage.removeItem(Globals.APP_USER);
         this.loginSubject.next(null);
         this.userSubject.next(null);
+        this.router.navigate(['']);
     }
 
     public profile() {

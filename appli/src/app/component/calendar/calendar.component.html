@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <div fxLayout="row" fxLayoutAlign="center center" style="height: calc(100vh - 64px);">
+        <div class="col-12">
+            <div class="row justify-content-around">
+                <ng-container *ngIf="!rdvconfirmed">
+                    <mat-card>
+                        <mat-card-title class="text-center">Choisissez un rendez-vous</mat-card-title>
+                        <mat-card-content>
+                            <form class="form-content" [formGroup]="calendarForm">
+                                <mat-form-field>
+                                    <mat-label>Selectionner une date</mat-label>
+                                    <mat-select formControlName="day"
+                                                required
+                                                (selectionChange)="createDaypartSelector($event)">
+                                        <ng-container *ngFor="let workingDay of workingDays">
+                                            <mat-option *ngIf="workingDay.available"
+                                                        [value]="workingDay">
+                                                {{ workingDay.date }}
+                                            </mat-option>
+                                        </ng-container>
+
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field *ngIf="workingDay">
+                                    <mat-label>Selectionner un créneau horaire</mat-label>
+                                    <mat-select formControlName="daypart"
+                                                required
+                                                (selectionChange)="selectDaypart($event)">
+                                        <ng-container *ngFor="let daypart of workingDay.dayparts">
+                                            <mat-option *ngIf="daypart.status.value ==0"
+                                                        [value]="daypart">
+                                                {{ daypart.type.definition }}
+                                            </mat-option>
+                                        </ng-container>
+
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field *ngIf="workingDay && selectedDaypart">
+                                    <mat-label>Selectionner un type de consultation</mat-label>
+                                    <mat-select formControlName="consult"
+                                                required
+                                                (selectionChange)="selectConsult($event)">
+                                        <mat-option *ngFor="let consult of consults"
+                                                    [value]="consult">
+                                            {{ consult.description }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <ngb-alert type="success"
+                                           *ngIf="workingDay && selectedDaypart && consult"
+                                           [dismissible]="false">
+                                    Confirmer la prise de RDV ?
+                                </ngb-alert>
+                                <button class="mt-3" mat-flat-button
+                                        [disabled]="calendarForm.invalid"
+                                        (click)="rdv()"
+                                        color="primary">
+                                    <span>Envoyer</span>
+                                </button>
+
+                            </form>
+                        </mat-card-content>
+                    </mat-card>
+                </ng-container>
+                <ng-container *ngIf="rdvconfirmed">
+                    <span>Vous allez recevoir un e-mail de confirmation de votre rdv</span>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+

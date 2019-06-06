@@ -11,6 +11,7 @@ export class CategoryService {
   constructor(private http: HttpClient, private router: Router) { }
 
   getCategories() {
+
     return this.http.get(Globals.APP_API + 'category');
   }
   getCategory(id: number) {

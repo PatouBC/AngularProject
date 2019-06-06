@@ -1,16 +1,14 @@
 <div >
+  <mat-spinner *ngIf="loading" [diameter]="20"></mat-spinner>
   <div fxLayoutAlign="center center ">
     <div class="pageTitle">{{ category?.title}}</div>
   </div>
-  <div fxLayout="row">
-    <div>{{ category?.description}}</div>
-    <mat-spinner *ngIf="loading" [diameter]="20"></mat-spinner>
-    <div *ngIf="category">
-      <app-image
-              [imgPath]="category?.image?.imgpath">
-      </app-image>
-    </div>
+  <div fxLayout="row" fxLayoutGap="20px grid">
 
+    <div>
+      <img src="../../../assets/images/wallhaven500.jpg" alt="fleurs et pierres dans l'eau"/>
+    </div>
+    <div>{{ category?.description}}</div>
   </div>
 </div>
 

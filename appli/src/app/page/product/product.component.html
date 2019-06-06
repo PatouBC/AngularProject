@@ -1,10 +1,15 @@
 <div >
   <app-category></app-category>
 </div>
+<mat-spinner *ngIf="loading" [diameter]="20"></mat-spinner>
+<div *ngIf="indications?.length > 1">
+  <label> Tri par émotion </label>
+  <select >
+    <option *ngFor="let indication of indications">{{ indication.description}}</option>
+  </select>
+</div>
 <div *ngFor="let product of products">
-
   <div>
-    <mat-spinner *ngIf="loading" [diameter]="20"></mat-spinner>
     <app-image
             [imgPath]="product.image.imgpath">
     </app-image>
@@ -15,9 +20,4 @@
   <div [innerHTML]="product?.effect | html"></div>
 
 </div>
-<div *ngIf="indications?.length > 1">
-  <label> Tri par émotion </label>
-  <select >
-    <option *ngFor="let indication of indications">{{ indication.description}}</option>
-  </select>
-</div>
+
