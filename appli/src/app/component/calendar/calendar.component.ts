@@ -83,4 +83,8 @@ export class CalendarComponent implements OnInit {
     this.rdvconfirmed = true;
     this.router.navigate(['/profile']);
   }
+
+  undo() {
+    this.router.navigate(['/perso']);
+  }
 }

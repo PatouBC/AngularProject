@@ -36,6 +36,9 @@ import { HtmlPipe } from './pipe/html.pipe';
 import { ImageComponent } from './component/image/image.component';
 import { ProductDetailComponent } from './page/product/product-detail/product-detail.component';
 import { CalendarComponent } from './component/calendar/calendar.component';
+import { ProfileComponent } from './component/profile/profile.component';
+import { RendezvousComponent } from './page/rendezvous/rendezvous.component';
+import { PersoComponent } from './page/perso/perso.component';
 
 
 
@@ -73,6 +76,14 @@ const appRoutes: Routes = [
     component: ProfilePageComponent,
     canActivate : [IsSignedInGuard],
     data : { title: 'Profile' } },
+  { path: 'perso',
+    component: PersoComponent,
+    canActivate : [IsSignedInGuard],
+    data : { title: 'Personnel' } },
+  { path: 'rendezvous',
+    component: RendezvousComponent,
+    canActivate : [IsSignedInGuard],
+    data : { title: 'Rendez-vous' } },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full' },
@@ -99,7 +110,10 @@ const appRoutes: Routes = [
     HtmlPipe,
     ImageComponent,
     ProductDetailComponent,
-    CalendarComponent
+    CalendarComponent,
+    ProfileComponent,
+    RendezvousComponent,
+    PersoComponent
   ],
   imports: [
     BrowserModule,
