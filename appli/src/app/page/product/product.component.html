@@ -4,16 +4,21 @@
             <div class="col-3 p-0 text-center logo"></div>
         </div>
     </div>
-
     <div>
         <app-category></app-category>
     </div>
     <mat-spinner *ngIf="loading" [diameter]="20"></mat-spinner>
     <div *ngIf="indications?.length > 1">
-        <label> Tri par émotion </label>
-        <select>
-            <option *ngFor="let indication of indications">{{ indication.description}}</option>
-        </select>
+        <mat-form-field>
+            <mat-label> Tri par émotion </mat-label>
+            <mat-select>
+                <mat-option *ngFor="let indication of indications"
+                     routerLink="/product/indication/{{ indication.id }}"
+                        [value]="indication.description">
+                        {{ indication.description}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
     <div *ngFor="let product of products">
         <div>
@@ -25,6 +30,6 @@
 
         <div [innerHTML]="product?.state | html"></div>
         <div [innerHTML]="product?.effect | html"></div>
-
     </div>
+
 </div>

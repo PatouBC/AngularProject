@@ -1,0 +1,15 @@
+
+<div fxLayoutAlign="center center ">
+    <div class="pageTitle">{{ indication?.description }}</div>
+</div>
+<button class="btn btn-sm btn-info" mat-flat-button (click)="backClicked()">Retour vers la liste des produits</button>
+<div *ngFor="let product of products">
+    <ng-container *ngFor="let indication of product.indications">
+        <div *ngIf="indication.description === val ">
+            <app-image
+          [imgPath]="product.image.imgpath">
+            </app-image>
+            <div>{{ product.name}}</div>
+        </div>
+    </ng-container>
+</div>

@@ -5,7 +5,7 @@ import { Globals } from '../globals';
 import { map } from 'rxjs/operators';
 import {Daypart} from '../class/daypart';
 import {User} from '../class/user';
-import {Consult} from "../class/consult";
+import {Consult} from '../class/consult';
 
 @Injectable({
   providedIn: 'root'

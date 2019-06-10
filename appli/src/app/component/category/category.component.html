@@ -5,13 +5,7 @@
     <div class="pageTitle">{{ category?.title}}</div>
   </div>
   <div fxLayout="row" fxLayoutGap="20px grid">
-
-    <div>
-      <app-image
-              [imgPath]="category.image.imgpath">
-      </app-image>
-    </div>
-    <div>{{ category?.description}}</div>
+    <div [innerHTML]="category?.description | html" ></div>
   </div>
 </div>
 

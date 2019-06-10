@@ -13,4 +13,8 @@ export class IndicationService {
   getIndications() {
     return this.http.get(Globals.APP_API + 'indication');
   }
+
+  getIndicationById(id: number) {
+    return this.http.get(Globals.APP_API + 'indication/' + id);
+  }
 }

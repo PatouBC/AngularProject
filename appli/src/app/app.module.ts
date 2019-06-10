@@ -39,6 +39,7 @@ import { CalendarComponent } from './component/calendar/calendar.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { RendezvousComponent } from './page/rendezvous/rendezvous.component';
 import { PersoComponent } from './page/perso/perso.component';
+import { ProductIndicationComponent } from './page/product/product-indication/product-indication.component';
 
 
 
@@ -56,6 +57,9 @@ const appRoutes: Routes = [
     data : { title: 'Fleurs et Elixirs' } },
   { path: 'product/detail/:id',
     component: ProductDetailComponent,
+    data : { title: 'Fleurs et Elixirs' } },
+  { path: 'product/indication/:id',
+    component: ProductIndicationComponent,
     data : { title: 'Fleurs et Elixirs' } },
   { path: 'soins',
     component: SoinsComponent,
@@ -113,7 +117,8 @@ const appRoutes: Routes = [
     CalendarComponent,
     ProfileComponent,
     RendezvousComponent,
-    PersoComponent
+    PersoComponent,
+    ProductIndicationComponent
   ],
   imports: [
     BrowserModule,
