@@ -5,11 +5,14 @@ import {Indication} from '../../class/indication';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CategoryService} from '../../service/category.service';
 import {ProductService} from '../../service/product.service';
+import { NgbPaginationConfig } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
     selector: 'app-product',
     templateUrl: './product.component.html',
-    styleUrls: ['./product.component.scss']
+    styleUrls: ['./product.component.scss'],
+    providers: [NgbPaginationConfig]
 })
 export class ProductComponent implements OnInit {
 
@@ -17,6 +20,10 @@ export class ProductComponent implements OnInit {
     products: Product[];
     product: Product;
     indications: Indication[];
+
+    page = 1;
+    pageSize = 12;
+
 
     constructor(private router: Router,
                 private catServ: CategoryService,
@@ -57,5 +64,6 @@ export class ProductComponent implements OnInit {
             });
         });
     }
+
 
 }

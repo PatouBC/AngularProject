@@ -9,7 +9,7 @@ import { MatIconModule, MatToolbarModule, MatSidenavModule, MatCheckboxModule,
          MatButtonModule, MatExpansionModule, MatListModule, MatMenuModule,
          MatCardModule, MatFormFieldModule, MatInputModule, MatGridListModule,
          MatProgressSpinnerModule, MatTableModule, MatSelectModule,
-         MatAutocompleteModule} from '@angular/material';
+         MatAutocompleteModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ImagepathPipe } from './pipe/imagepath.pipe';
@@ -27,7 +27,6 @@ import { ConsultationsComponent } from './page/consultations/consultations.compo
 import { IndicationComponent } from './component/indication/indication.component';
 import { CategoryComponent } from './component/category/category.component';
 import { RegistrationComponent } from './page/registration/registration.component';
-
 import { ProductComponent } from './page/product/product.component';
 
 import { ProfilePageComponent } from './page/profile-page/profile-page.component';
@@ -40,9 +39,6 @@ import { ProfileComponent } from './component/profile/profile.component';
 import { RendezvousComponent } from './page/rendezvous/rendezvous.component';
 import { PersoComponent } from './page/perso/perso.component';
 import { ProductIndicationComponent } from './page/product/product-indication/product-indication.component';
-
-
-
 
 
 const appRoutes: Routes = [

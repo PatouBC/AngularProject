@@ -10,3 +10,18 @@
   background-repeat: no-repeat;
   width: 100vw;
 }
+::ng-deep .page-item.active .page-link {
+  background-color: #707070;
+  border-color: #707070;
+}
+::ng-deep .page-link {
+  color: #707070;
+}
+.imgTitle {
+  padding-right: 20px;
+  text-align: center;
+}
+.listing {
+  padding-right: 50px;
+  padding-left: 50px;
+}

@@ -20,16 +20,25 @@
             </mat-select>
         </mat-form-field>
     </div>
-    <div *ngFor="let product of products">
-        <div>
-            <app-image
-                    [imgPath]="product.image.imgpath">
-            </app-image>
-            <div>{{ product.name}}</div>
-        </div>
-
-        <div [innerHTML]="product?.state | html"></div>
-        <div [innerHTML]="product?.effect | html"></div>
+    <ngb-pagination *ngIf="products?.length > 10"
+                    [collectionSize]="products?.length"
+                    [(page)]="page"
+                    size="sm"
+                    class="d-flex justify-content-end ">
+    </ngb-pagination>
+    <div class="container listing">
+    <div fxLayout="row wrap" >
+            <div *ngFor="let product of products | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                <div>
+                    <app-image
+                            [imgPath]="product.image.imgpath">
+                    </app-image>
+                    <div class="imgTitle" >{{ product.name}}</div>
+                </div>
+            </div>
     </div>
+
+    </div>
+
 
 </div>
