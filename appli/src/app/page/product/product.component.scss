@@ -33,3 +33,9 @@
 .bottomlist{
   padding-top: 50px;
 }
+.thumbnail{
+  cursor: pointer;
+}
+app-image:focus{
+  outline: 0;
+}

@@ -1,19 +1,32 @@
-<div class="row">
-    <div class="col p-0 entete">
-        <div class="col-3 p-0 text-center logo"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col p-0 entete">
+            <div class="col-3 p-0 text-center logo"></div>
+        </div>
+    </div>
+    <div fxLayoutAlign="center center " class="pageTitle titleBand">
+        <div>A chaque émotion, ses fleurs : {{ indication?.description }}</div>
+    </div>
+    <button class="btn btn-sm " mat-flat-button (click)="backClicked()">
+        <mat-icon class="material-icons arrow">arrow_back</mat-icon>
+        <span class="back">Retour vers la page précédente</span>
+    </button>
+    <div class="descript">
+        <div class="listing">
+            <div fxLayout="row wrap" fxLayoutAlign="center center">
+                <div *ngFor="let product of products">
+                    <div *ngFor="let indication of product.indications">
+                        <div *ngIf="indication.description === val">
+                            <app-image
+                                    [imgPath]="product.image.imgpath"
+                                    routerLink="/product/detail/{{product.id}}">
+                            </app-image>
+                            <div class="imgTitle">{{ product.name}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<div fxLayoutAlign="center center " class="pageTitle titleBand">
-    <div >{{ indication?.description }}</div>
-</div>
-<button class="btn btn-sm btn-info" mat-flat-button (click)="backClicked()">Retour vers la page précédente</button>
-<div *ngFor="let product of products">
-    <ng-container *ngFor="let indication of product.indications">
-        <div *ngIf="indication.description === val ">
-            <app-image
-          [imgPath]="product.image.imgpath">
-            </app-image>
-            <div>{{ product.name}}</div>
-        </div>
-    </ng-container>
-</div>
+

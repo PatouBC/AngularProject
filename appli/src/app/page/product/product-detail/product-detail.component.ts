@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductService} from "../../../service/product.service";
-import {ActivatedRoute} from "@angular/router";
-import {Product} from "../../../class/product";
+import {ProductService} from '../../../service/product.service';
+import {ActivatedRoute} from '@angular/router';
+import {Product} from '../../../class/product';
+import { Location} from '@angular/common';
 
 @Component({
   selector: 'app-product-detail',
@@ -13,7 +14,8 @@ export class ProductDetailComponent implements OnInit {
   product: Product;
 
   constructor(private prodServ: ProductService,
-              private activatedRoute: ActivatedRoute,) { }
+              private activatedRoute: ActivatedRoute,
+              private location: Location) { }
 
   ngOnInit() {
     this.activatedRoute.params
@@ -24,5 +26,9 @@ export class ProductDetailComponent implements OnInit {
               });
         });
   }
+
+    backClicked() {
+        this.location.back();
+    }
 
 }

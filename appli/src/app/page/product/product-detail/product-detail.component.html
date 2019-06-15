@@ -1,3 +1,29 @@
-<p>
-  product-detail works!
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col p-0 entete">
+            <div class="col-3 p-0 text-center logo"></div>
+        </div>
+    </div>
+    <div fxLayoutAlign="center center " class="pageTitle titleBand">
+        <div>{{ product?.category.title }}</div>
+    </div>
+    <button class="btn btn-sm " mat-flat-button (click)="backClicked()">
+        <mat-icon class="material-icons arrow">arrow_back</mat-icon>
+        <span class="back">Retour vers la page précédente</span>
+    </button>
+    <div class="descript" *ngIf="product" fxLayout="row" fxLayoutAlign="center center ">
+        <app-image
+                [imgPath]="product.image.imgpath"
+                [alt]="product.image.alt"
+                routerLink="/product/detail/{{product.id}}">
+        </app-image>
+        <div >
+            <div class="prodTitle">{{ product.name}}</div>
+            <h6>Etat émotionnel :</h6>
+            <div [innerHTML]="product.state | html" ></div>
+            <h6>Effets positifs :</h6>
+            <div [innerHTML]="product.effect | html"></div>
+        </div>
+
+    </div>
+</div>
