@@ -1,5 +1,6 @@
 import { Category} from './category';
 import { Indication } from './indication';
+import {Image} from './image';
 
 export class Product {
     id: number;
@@ -8,5 +9,5 @@ export class Product {
     effect: string;
     category: Category;
     indications: Indication[];
-    image: string;
+    image: Image;
 }

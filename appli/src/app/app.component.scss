@@ -34,6 +34,9 @@ mat-toolbar{
    border-bottom-style: ridge;
    border-color: #f3f3f3;
 }
-
+::ng-deep .container-fluid{
+   padding:0;
+   margin: 0;
+}
 
 

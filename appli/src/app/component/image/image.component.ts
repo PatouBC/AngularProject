@@ -9,8 +9,10 @@ import {Globals} from '../../globals';
 export class ImageComponent implements OnInit {
 
   @Input() imgPath: string;
+  @Input() alt: string;
   imgLoaded: boolean;
   src: string;
+
 
   constructor() { }
 

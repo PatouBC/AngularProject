@@ -3,10 +3,10 @@
         <div class="col-3 p-0 text-center logo"></div>
     </div>
 </div>
-<div fxLayoutAlign="center center ">
-    <div class="pageTitle">{{ indication?.description }}</div>
+<div fxLayoutAlign="center center " class="pageTitle titleBand">
+    <div >{{ indication?.description }}</div>
 </div>
-<button class="btn btn-sm btn-info" mat-flat-button (click)="backClicked()">Retour vers la liste des produits</button>
+<button class="btn btn-sm btn-info" mat-flat-button (click)="backClicked()">Retour vers la page précédente</button>
 <div *ngFor="let product of products">
     <ng-container *ngFor="let indication of product.indications">
         <div *ngIf="indication.description === val ">

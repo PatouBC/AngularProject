@@ -18,10 +18,18 @@
   color: #707070;
 }
 .imgTitle {
-  padding-right: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
   text-align: center;
+  border-style: groove;
 }
 .listing {
-  padding-right: 50px;
-  padding-left: 50px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.descript{
+  padding :0px 40px 40px 40px;
+}
+.bottomlist{
+  padding-top: 50px;
 }
