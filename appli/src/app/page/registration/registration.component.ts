@@ -18,7 +18,7 @@ export class RegistrationComponent implements OnInit {
     ngOnInit() {
         this.registerForm = this.fb.group({
             name: [ null, Validators.required ],
-            surname: [ null, Validators.required ],
+            firstname: [ null, Validators.required ],
             username: [ null, Validators.required ],
             password: new FormControl('', Validators.compose([
                 Validators.required,
@@ -27,7 +27,8 @@ export class RegistrationComponent implements OnInit {
             email: new FormControl('', Validators.compose([
                 Validators.required,
                 Validators.pattern('^(([^<>()\\[\\]\\.,;:\\s@\\"]+(\\.[^<>()\\[\\]\\.,;:\\s@\\"]+)*)|(\\".+\\"))@(([^<>()[\\]\\.,;:\\s@\\"]+\\.)+[^<>()[\\]\\.,;:\\s@\\"]{2,})$')
-            ]))
+            ])),
+            rgpd: [ null, Validators.required ]
         });
     }
 

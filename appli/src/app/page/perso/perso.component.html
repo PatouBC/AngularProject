@@ -4,3 +4,13 @@
 
 <button mat-button (click)="toProfile()">Mon profile</button>
 <button mat-button (click)="toRdv()">Mes rendez-vous</button>
+
+<div>
+  <h6>Mes messages</h6>
+  <div *ngFor="let email of emails">
+    <div>{{ email.object }}</div>
+    <div>{{ email.message }}</div>
+    <div *ngIf="email.treated === true">Votre message a été traité</div>
+    <div *ngIf="email.treated === false">Message en attente de réponse</div>
+  </div>
+</div>

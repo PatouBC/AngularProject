@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 import { MatIconModule, MatToolbarModule, MatSidenavModule, MatCheckboxModule,
          MatButtonModule, MatExpansionModule, MatListModule, MatMenuModule,
@@ -39,15 +40,27 @@ import { ProfileComponent } from './component/profile/profile.component';
 import { RendezvousComponent } from './page/rendezvous/rendezvous.component';
 import { PersoComponent } from './page/perso/perso.component';
 import { ProductIndicationComponent } from './page/product/product-indication/product-indication.component';
+import { EmailComponent } from './component/email/email.component';
+import { CookieComponent } from './component/cookie/cookie.component';
+import { ConfidentialComponent } from './page/confidential/confidential.component';
 
 
 const appRoutes: Routes = [
   { path: 'home',
     component: HomeComponent,
     data : { title: 'Accueil' } },
+  { path: 'ateliers',
+    component: AteliersComponent,
+    data : { title: 'Ateliers' } },
   { path: 'category',
     component: CategoryComponent,
     data : { title: 'Catégories' } },
+  { path: 'confidential',
+    component: ConfidentialComponent,
+    data : { title: 'Politique de confidentialité' } },
+  { path: 'consultations',
+    component: ConsultationsComponent,
+    data : { title: 'Consultations' } },
   { path: 'product/:id',
     component: ProductComponent,
     data : { title: 'Fleurs et Elixirs' } },
@@ -60,12 +73,6 @@ const appRoutes: Routes = [
   { path: 'soins',
     component: SoinsComponent,
     data : { title: 'Soins énergétiques' } },
-  { path: 'ateliers',
-    component: AteliersComponent,
-    data : { title: 'Ateliers' } },
-  { path: 'consultations',
-    component: ConsultationsComponent,
-    data : { title: 'Consultations' } },
   { path: 'login',
     component: LoginComponent,
     data : { title: 'Connexion' } },
@@ -114,7 +121,10 @@ const appRoutes: Routes = [
     ProfileComponent,
     RendezvousComponent,
     PersoComponent,
-    ProductIndicationComponent
+    ProductIndicationComponent,
+    EmailComponent,
+    CookieComponent,
+    ConfidentialComponent
   ],
   imports: [
     BrowserModule,
@@ -145,6 +155,7 @@ const appRoutes: Routes = [
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+      CookieService
   ],
   bootstrap: [AppComponent]
 })

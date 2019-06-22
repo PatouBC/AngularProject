@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../class/user';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {AuthService} from '../../service/auth.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -26,21 +26,21 @@ export class ProfileComponent implements OnInit {
       username : new FormControl(this.user.username),
       email : new FormControl(this.user.email),
       name : new FormControl(this.user.name),
-      surname : new FormControl(this.user.surname)
+      firstname : new FormControl(this.user.firstname)
     });
   }
 
   saveProfile() {
     const val = this.userForm.value;
     this.loading = true;
-    this.auth.saveProfile(val.name, val.surname)
+    this.auth.saveProfile(val.name, val.firstname)
         .subscribe( (user: User) => {
           this.loading = false;
           this.userForm.setValue({
             username: user.username,
             email: user.email,
             name: user.name,
-            surname: user.surname,
+            firstname: user.firstname,
           });
           this.router.navigate(['/perso']);
         }, () => {

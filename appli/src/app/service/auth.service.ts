@@ -69,8 +69,8 @@ export class AuthService {
             }));
     }
 
-    public saveProfile(name, surname) {
-        const data = {name, surname};
+    public saveProfile(name, firstname) {
+        const data = {name, firstname};
         return this.http.put<User>(Globals.APP_API +  'auth/profile/edit', data)
             .pipe(map((user) => {
                 if (user) {
@@ -85,10 +85,11 @@ export class AuthService {
     public register(data) {
         const obj = {
             name: data.name,
-            surname: data.surname,
+            firstname: data.firstname,
             username: data.username,
             email: data.email,
-            password: data.password
+            password: data.password,
+            rgpd: data.rgpd
         };
         return this.http.post(Globals.APP_API + 'auth/register', obj);
     }
