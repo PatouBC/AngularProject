@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import {AuthService} from '../../service/auth.service';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-registration',
@@ -13,7 +14,7 @@ export class RegistrationComponent implements OnInit {
      loading: boolean;
      registerForm: FormGroup;
 
-    constructor(private fb: FormBuilder, private authServ: AuthService) { }
+    constructor(private fb: FormBuilder, private authServ: AuthService, private cookieServ: CookieService) { }
 
     ngOnInit() {
         this.registerForm = this.fb.group({
@@ -38,6 +39,7 @@ export class RegistrationComponent implements OnInit {
 
     register() {
         const val = this.registerForm.value;
+        this.setCookie();
         this.loading = true;
         this.authServ.register(val).subscribe( () => {
             this.loading = false;
@@ -45,5 +47,12 @@ export class RegistrationComponent implements OnInit {
         }, () => {
             this.registerFailed = true;
         });
+    }
+
+    setCookie() {
+        this.cookieServ.check('rgpd');
+        if (!'rgpd') {
+            this.cookieServ.set('rgpd', 'true');
+        }
     }
 }

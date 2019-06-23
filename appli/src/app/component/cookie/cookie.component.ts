@@ -14,7 +14,9 @@ export class CookieComponent implements OnInit {
 
   ngOnInit() {
 
-    this.CookieValue = this.cookieServ.get('rgpd');
+    setTimeout( () => {
+      this.CookieValue = this.cookieServ.get('rgpd');
+    }, 3000);
   }
   setCookie() {
     this.cookieServ.set('rgpd', 'true');
