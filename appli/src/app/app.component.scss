@@ -38,5 +38,30 @@ mat-toolbar{
    padding:0;
    margin: 0;
 }
-
-
+.facebook{
+   width: 40px;
+   height: 40px;
+}
+footer{
+   background-color: #707070;
+   color: white;
+   font-size: 0.75em;
+   padding: 10px;
+}
+.copyright{
+   width: 20px;
+   height: 20px;
+}
+.logoFooter{
+   width: 70px;
+   height: 70px;
+   border-radius: 35px;
+   background-color: #ffff;
+}
+a:link{
+   text-decoration: none!important;
+   color: white;
+}
+.underFooter{
+   margin: 15px;
+}
