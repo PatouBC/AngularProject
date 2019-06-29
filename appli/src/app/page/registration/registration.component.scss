@@ -8,9 +8,17 @@
   font-size: smaller;
   color: #929292;
 }
-.container-fluid{
+.registration{
   background-image: url("../../../assets/images/register2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 50%;
+}
+mat-card{
+  width: 300px;
+  margin-bottom: 50px;
+}
+a{
+  color: #8b1461;
+  font-weight: bold;
 }

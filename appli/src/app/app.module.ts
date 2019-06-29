@@ -16,7 +16,6 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ImagepathPipe } from './pipe/imagepath.pipe';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './page/login/login.component';
 import { JwtInterceptor } from './class/jwt-interceptor';
 import { ErrorInterceptor } from './class/error-interceptor';
 import {IsSignedInGuard} from './guard/is-signed-in.guard';
@@ -43,6 +42,7 @@ import { ProductIndicationComponent } from './page/product/product-indication/pr
 import { EmailComponent } from './component/email/email.component';
 import { CookieComponent } from './component/cookie/cookie.component';
 import { ConfidentialComponent } from './page/confidential/confidential.component';
+import { LoginComponent} from './component/login/login.component';
 
 
 const appRoutes: Routes = [
@@ -52,9 +52,6 @@ const appRoutes: Routes = [
   { path: 'ateliers',
     component: AteliersComponent,
     data : { title: 'Ateliers' } },
-  { path: 'category',
-    component: CategoryComponent,
-    data : { title: 'Catégories' } },
   { path: 'confidential',
     component: ConfidentialComponent,
     data : { title: 'Politique de confidentialité' } },
@@ -73,9 +70,6 @@ const appRoutes: Routes = [
   { path: 'soins',
     component: SoinsComponent,
     data : { title: 'Soins énergétiques' } },
-  { path: 'login',
-    component: LoginComponent,
-    data : { title: 'Connexion' } },
   { path: 'registration',
     component: RegistrationComponent,
     data : { title: 'Enregistrement' } },

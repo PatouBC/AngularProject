@@ -9,13 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
   public loginForm: FormGroup;
   public connexionFailed: boolean;
+  public loading: boolean;
   constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
-      if (this.auth.isConnected()) {
-        this.router.navigate(['/home']);
-      }
-   }
+    if (this.auth.isConnected()) {
+      this.router.navigate(['/home']);
+    }
+  }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -28,21 +30,22 @@ export class LoginComponent implements OnInit {
     const val = this.loginForm.value;
     if (val.username && val.password) {
       this.auth.login(val.username, val.password)
-        .subscribe(() => {
-          this.auth.profile()
-            .subscribe(
-              (user) => {
-              this.router.navigate(['/home']);
-             },
-            (err) => {
-              console.error(err);
-              this.connexionFailed = true;
-            });
-        },
-          (err) => {
-            console.error(err);
-            this.connexionFailed = true;
-          });
+          .subscribe(() => {
+                this.auth.profile()
+                    .subscribe(
+                        (user) => {
+                          this.router.navigate(['/home']);
+                        },
+                        (err) => {
+                          console.error(err);
+                          this.connexionFailed = true;
+                        });
+              },
+              (err) => {
+                console.error(err);
+                this.connexionFailed = true;
+              });
     }
   }
+
 }
