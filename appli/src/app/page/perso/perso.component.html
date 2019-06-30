@@ -1,8 +1,6 @@
-<p>
-  perso works!
-</p>
-
+<div class="container-fluid">
 <button mat-button (click)="toProfile()">Mon profile</button>
+  <app-profile class="col-12 col-sm-6 col-md-4"></app-profile>
 <button mat-button (click)="toRdv()">Mes rendez-vous</button>
 
 <div>
@@ -13,4 +11,5 @@
     <div *ngIf="email.treated === true">Votre message a été traité</div>
     <div *ngIf="email.treated === false">Message en attente de réponse</div>
   </div>
+</div>
 </div>

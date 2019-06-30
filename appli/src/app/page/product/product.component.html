@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row">
+    <div fxLayout="row">
         <div class="col p-0 entete">
             <div class="col-3 p-0 text-center logo"></div>
         </div>
@@ -8,7 +8,9 @@
         <app-category></app-category>
     </div>
     <div class="descript">
-        <mat-spinner *ngIf="loading" [diameter]="20"></mat-spinner>
+        <div fxLayoutAlign="center center " style="width: 100%">
+            <mat-spinner *ngIf="loading" [diameter]="25" ></mat-spinner>
+        </div >
         <div *ngIf="indications?.length > 1" fxLayoutAlign="center center">
             <mat-form-field>
                 <mat-label> Tri par émotion</mat-label>

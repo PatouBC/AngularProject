@@ -12,17 +12,20 @@ import { Location} from '@angular/common';
 export class ProductDetailComponent implements OnInit {
 
   product: Product;
+  loading: boolean;
 
   constructor(private prodServ: ProductService,
               private activatedRoute: ActivatedRoute,
               private location: Location) { }
 
   ngOnInit() {
-    this.activatedRoute.params
+      this.loading = true;
+      this.activatedRoute.params
         .subscribe((params) => {
           this.prodServ.getProductById(params.id)
               .subscribe((product: Product) => {
                 this.product = product;
+                this.loading = false;
               });
         });
   }

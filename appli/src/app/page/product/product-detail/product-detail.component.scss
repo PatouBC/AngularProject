@@ -10,6 +10,9 @@
   background-repeat: no-repeat;
   width: 100vw;
 }
+.container-fluid{
+  min-height: 80vh;
+}
 .descript{
   padding :40px ;
 }
@@ -18,7 +21,7 @@
   color: white;
 }
 .pageTitle{
-  font-size: 30px;
+  font-size: 2em;
 }
 .prodTitle{
   font-size: 25px;

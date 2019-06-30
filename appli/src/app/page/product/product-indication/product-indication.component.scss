@@ -10,12 +10,15 @@
   background-repeat: no-repeat;
   width: 100vw;
 }
+.container-fluid{
+  min-height: 80vh;
+}
 .titleBand{
   background-color: #612C5D;
   color: white;
 }
 .pageTitle{
-  font-size: 3vw;
+  font-size: 2em;
 }
 .back{
   font-size: 10px;
@@ -39,4 +42,7 @@
 }
 app-image:focus{
   outline: 0;
+}
+.vignette{
+  cursor: pointer;
 }

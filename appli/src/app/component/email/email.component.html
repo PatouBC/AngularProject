@@ -1,11 +1,10 @@
 
 <div class="container-fluid">
   <div fxLayout="row" fxLayoutAlign="center center" style="height: calc(100vh - 64px);">
-    <mat-card *ngIf="!emailSent">
-      <mat-spinner *ngIf="loading" [diameter]="20"></mat-spinner>
+    <mat-card *ngIf="!emailSent" style="width: 400px;">
       <mat-card-title class="text-center">Envoyer un message</mat-card-title>
       <mat-card-content>
-        <form class="form-content" [formGroup]="emailForm">
+        <form fxLayout="column" [formGroup]="emailForm">
           <mat-form-field>
             <input matInput
                    type="text"
@@ -37,7 +36,7 @@
             <textarea matInput
                       cdkTextareaAutosize
                       #autosize="cdkTextareaAutosize"
-                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMinRows="10"
                       cdkAutosizeMaxRows="50"
                       placeholder="Message"
                       formControlName="message"
@@ -45,7 +44,7 @@
             </textarea>
           </mat-form-field>
           <mat-checkbox formControlName="rgpd">
-            <span id="rgpd">J'accepte les cgv et la politique de confidentialité</span>
+            <span id="rgpd">J'accepte <a routerLink="/confidential">la politique de confidentialité</a></span>
           </mat-checkbox>
           <button class="mt-3" mat-flat-button
                   [disabled]="loading || emailForm.invalid"

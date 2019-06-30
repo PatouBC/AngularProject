@@ -20,6 +20,7 @@ export class ProductComponent implements OnInit {
     products: Product[];
     product: Product;
     indications: Indication[];
+    loading: boolean;
 
     page = 1;
     pageSize = 10;
@@ -32,6 +33,7 @@ export class ProductComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.loading = true;
         setTimeout(() => {
             this.activatedRoute.params
                 .subscribe((params) => {
@@ -46,6 +48,7 @@ export class ProductComponent implements OnInit {
                 this.prodServ.getProductsByCategory(params.id)
                     .subscribe((products: Product[]) => {
                         this.products = products;
+                        this.loading = false;
                         this.getIndications();
                     });
             });

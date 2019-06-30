@@ -16,6 +16,7 @@ export class ProductIndicationComponent implements OnInit {
 
     products: Product[];
     indication: Indication;
+    loading: boolean;
     private val: string;
 
     constructor(private router: Router,
@@ -26,6 +27,7 @@ export class ProductIndicationComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.loading = true;
         this.activatedRoute.params
             .subscribe((params) => {
                 this.indicServ.getIndicationById(params.id)
@@ -37,6 +39,7 @@ export class ProductIndicationComponent implements OnInit {
         this.prodServ.getProducts()
             .subscribe((products: Product[]) => {
                 this.products = products;
+                this.loading = false;
             });
 
     }

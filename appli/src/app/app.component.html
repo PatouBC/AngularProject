@@ -45,7 +45,7 @@
        </mat-nav-list>
     </nav>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content class="content">
     <mat-toolbar  role="heading">
       <span>
         <button mat-button (click)="sidenav.toggle()">
@@ -53,7 +53,7 @@
         </button>
       </span>
       <span class="remaining-space"></span>
-      <span *ngIf="!isConnected()">        
+      <span *ngIf="!isConnected()">
         <button mat-button [matMenuTriggerFor]="menu">
           <mat-icon class="material-icons-outlined">account_box</mat-icon>
         </button>
@@ -83,7 +83,7 @@
       </span>
     </mat-toolbar>
     <div class="container-fluid p-0">
-      
+
       <router-outlet></router-outlet>
     </div>
     <footer class="footer" fxLayout="row wrap" fxLayoutAlign="space-around center">
@@ -102,7 +102,7 @@
           <p class="mail">perez-valerie@live.fr</p>
         </a>
       </div>
-      <a href="http://facebook.fr" class="underFooter">
+      <a href="https://www.facebook.com/Re-Naissance-Fleurs-de-Bach-1660614733989068/" class="underFooter">
         <img class="facebook" src="../assets/images/Facebook%20New_48px.png" alt="logo facebook"/>
       </a>
       <div fxlayout="row" class="underFooter">

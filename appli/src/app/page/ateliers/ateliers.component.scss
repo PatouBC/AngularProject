@@ -1,3 +1,4 @@
+
 .logo{
 	background-image: url("../../../assets/images/logo300-re-naissance-claire-body.png");
 	background-size: cover;
@@ -5,8 +6,38 @@
     height: 25vw;
 }
 .entete{
-	background-image: url("../../../assets/images/ateliers1920x400.jpg");
-	background-size: contain;
+	background-image: url("../../../assets/images/atelier6.jpg");
+	background-size: cover;
 	background-repeat: no-repeat;
-	width: 100vw;
+	width: 25vw;
+}
+.titleBand{
+	background-color: #82696D;
+	color: white;
+}
+.pageTitle{
+	font-size: 2em;
+}
+.presentation{
+	margin: 30px;
+}
+#imgAtelier{
+	margin: 30px;
+}
+#couronne{
+	width: 250px;
+}
+#atelier3{
+	width: 400px
+}
+a{
+	color: #8b1461;
+	font-weight: bold;
+}
+.assoLink{
+	margin: 30px;
+}
+#atelierAdulte{
+	margin: 30px;
+	width: 450px;
 }
