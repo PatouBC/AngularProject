@@ -6,6 +6,7 @@ import {CalendarService} from '../../service/calendar.service';
 import {AuthService} from '../../service/auth.service';
 import {Router} from '@angular/router';
 import {Consult} from '../../class/consult';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-calendar',
@@ -27,7 +28,8 @@ export class CalendarComponent implements OnInit {
   constructor(private calendarServ: CalendarService,
               private authServ: AuthService,
               private fb: FormBuilder,
-              private router: Router) { }
+              private router: Router,
+              private location: Location) { }
 
   ngOnInit() {
     this.init();
@@ -81,10 +83,10 @@ export class CalendarComponent implements OnInit {
             () => {
             });
     this.rdvconfirmed = true;
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/perso']);
   }
 
   undo() {
-    this.router.navigate(['/perso']);
+    location.reload();
   }
 }

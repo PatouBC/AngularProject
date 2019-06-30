@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div fxLayout fxLayoutAlign="center center" style="height: calc(100vh - 64px);">
     <mat-card style=" width: 300px;">
-      <ngb-alert type="danger" *ngIf="connexionFailed" (close)="connexionFailed=false">
+      <ngb-alert type="danger" *ngIf="connexionFailed" (close)="connexionFailed = false">
         Le couple identifiant/mot de passe n'est pas valide
       </ngb-alert>
       <mat-spinner *ngIf="loading" [diameter]="20"></mat-spinner>

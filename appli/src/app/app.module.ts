@@ -29,14 +29,14 @@ import { CategoryComponent } from './component/category/category.component';
 import { RegistrationComponent } from './page/registration/registration.component';
 import { ProductComponent } from './page/product/product.component';
 
-import { ProfilePageComponent } from './page/profile-page/profile-page.component';
+
 import { ActuComponent } from './component/actu/actu.component';
 import { HtmlPipe } from './pipe/html.pipe';
 import { ImageComponent } from './component/image/image.component';
 import { ProductDetailComponent } from './page/product/product-detail/product-detail.component';
 import { CalendarComponent } from './component/calendar/calendar.component';
 import { ProfileComponent } from './component/profile/profile.component';
-import { RendezvousComponent } from './page/rendezvous/rendezvous.component';
+
 import { PersoComponent } from './page/perso/perso.component';
 import { ProductIndicationComponent } from './page/product/product-indication/product-indication.component';
 import { EmailComponent } from './component/email/email.component';
@@ -58,6 +58,9 @@ const appRoutes: Routes = [
   { path: 'consultations',
     component: ConsultationsComponent,
     data : { title: 'Consultations' } },
+  { path: 'perso',
+    component: PersoComponent,
+    data : { title: 'Fleurs et Elixirs' } },
   { path: 'product/:id',
     component: ProductComponent,
     data : { title: 'Fleurs et Elixirs' } },
@@ -73,18 +76,10 @@ const appRoutes: Routes = [
   { path: 'registration',
     component: RegistrationComponent,
     data : { title: 'Enregistrement' } },
-  { path: 'profile',
-    component: ProfilePageComponent,
-    canActivate : [IsSignedInGuard],
-    data : { title: 'Profile' } },
   { path: 'perso',
     component: PersoComponent,
     canActivate : [IsSignedInGuard],
     data : { title: 'Personnel' } },
-  { path: 'rendezvous',
-    component: RendezvousComponent,
-    canActivate : [IsSignedInGuard],
-    data : { title: 'Rendez-vous' } },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full' },
@@ -106,14 +101,12 @@ const appRoutes: Routes = [
     IndicationComponent,
     ImagepathPipe,
     RegistrationComponent,
-    ProfilePageComponent,
     ActuComponent,
     HtmlPipe,
     ImageComponent,
     ProductDetailComponent,
     CalendarComponent,
     ProfileComponent,
-    RendezvousComponent,
     PersoComponent,
     ProductIndicationComponent,
     EmailComponent,

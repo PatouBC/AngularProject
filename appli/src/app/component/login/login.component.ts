@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
               (err) => {
                 console.error(err);
                 this.connexionFailed = true;
+                this.router.navigate(['/registration']);
               });
     }
   }

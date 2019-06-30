@@ -2,6 +2,7 @@ import { User } from './user';
 import { Status } from './status';
 import { Type } from './type';
 import { Consult } from './consult';
+import {Workingday} from './workingday';
 
 export class Daypart {
     id: number;
@@ -9,4 +10,5 @@ export class Daypart {
     type: Type;
     consults: Consult[];
     user: User;
+    workingDay: Workingday[];
 }

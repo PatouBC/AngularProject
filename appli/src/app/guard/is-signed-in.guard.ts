@@ -11,8 +11,8 @@ export class IsSignedInGuard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
       const isSignedIn = this.auth.isConnected();
-      if(isSignedIn !== true) {
-        this.router.navigate(['/login']);
+      if (isSignedIn !== true) {
+        this.router.navigate(['/perso']);
       }
       return isSignedIn;
   }

@@ -9,5 +9,6 @@ export class Email {
     message: string;
     treated: boolean;
     user: User;
+    rgpd: boolean;
 
 }

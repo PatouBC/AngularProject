@@ -48,4 +48,8 @@ export class CalendarService {
       consult: consult.id
     });
   }
+
+  getRdv(userId: number) {
+    return this.http.get(Globals.APP_API + 'daypart?user=' + userId);
+  }
 }
