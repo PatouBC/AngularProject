@@ -20,24 +20,29 @@
                  fxLayoutAlign="space-around center">
                 <div>
                     <h4>Mes rendez-vous</h4>
-                    <table class="table table-responsive">
-                        <thead class="thead-light">
-                        <tr>
-                            <th scope="col">Date</th>
-                            <th scope="col">Heure</th>
-                            <th scope="col">Statut</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr *ngFor="let daypart of dayparts">
-                            <td class="rdvItems">{{ daypart.workingDay.daydate }}/
-                                {{ daypart.workingDay.daymonth }}/
-                                {{ daypart.workingDay.dayyear }}</td>
-                            <td class="rdvItems">{{ daypart.type.definition }}</td>
-                            <td class="rdvItems">{{ (daypart.status.value == 20) ? 'confirmé' : 'en attente' }}</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <ng-container *ngIf="dayparts?.length > 0 ">
+                        <table class="table table-responsive">
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Heure</th>
+                                <th scope="col">Statut</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let daypart of dayparts">
+                                <td class="rdvItems">{{ daypart.workingDay.daydate }}/
+                                    {{ daypart.workingDay.daymonth }}/
+                                    {{ daypart.workingDay.dayyear }}</td>
+                                <td class="rdvItems">{{ daypart.type.definition }}</td>
+                                <td class="rdvItems">{{ (daypart.status.value == 20) ? 'confirmé' : 'en attente' }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </ng-container>
+                    <ng-container *ngIf="dayparts?.length == 0 ">
+                        <h5>Vous n'avez aucun rendez-vous dans votre liste</h5>
+                    </ng-container>
                 </div>
             </div>
             <app-calendar></app-calendar>
@@ -48,6 +53,7 @@
              fxLayoutAlign="space-around center"
              style="width: 100%">
             <div>
+                <ng-container *ngIf="emails?.length > 0 ">
                 <h4>Mes messages</h4>
                 <table class="table table-responsive">
                     <thead class="thead-light">
@@ -66,6 +72,10 @@
                     </tr>
                     </tbody>
                 </table>
+                </ng-container>
+                <ng-container *ngIf="emails?.length == 0 ">
+                    <h5>Vous n'avez aucun message dans votre liste</h5>
+                </ng-container>
             </div>
             <app-email></app-email>
         </div>
