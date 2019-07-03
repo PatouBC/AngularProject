@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Category} from '../../class/category';
 import {CategoryService} from '../../service/category.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Actu} from '../../class/actu';
+
 
 
 @Component({

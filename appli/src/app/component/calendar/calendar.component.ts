@@ -6,7 +6,6 @@ import {CalendarService} from '../../service/calendar.service';
 import {AuthService} from '../../service/auth.service';
 import {Router} from '@angular/router';
 import {Consult} from '../../class/consult';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-calendar',
@@ -28,8 +27,7 @@ export class CalendarComponent implements OnInit {
   constructor(private calendarServ: CalendarService,
               private authServ: AuthService,
               private fb: FormBuilder,
-              private router: Router,
-              private location: Location) { }
+              private router: Router) { }
 
   ngOnInit() {
     this.init();
@@ -87,6 +85,6 @@ export class CalendarComponent implements OnInit {
   }
 
   undo() {
-    location.reload();
+    this.ngOnInit();
   }
 }

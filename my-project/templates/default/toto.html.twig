@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ test }}
+{% endblock %}
+
+{% block body %}
+    {% if test%2 %}
+        <h1>Titi</h1>
+    {% else %}
+        <h1>Tutu</h1>
+    {% endif %}
+    <a href="{{ path('accueilClass_index') }}">lien vers l'index</a>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javacripts %}
+
+{% endblock %}
